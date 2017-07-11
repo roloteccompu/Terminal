@@ -1,0 +1,50 @@
+	<div class="contenedorGrilla">
+		
+		<div class="cabeceraGrilla">
+			<h1 class="tituloGrilla">Empresas actualmente en servicio</h1>
+			<!-- <input  class="buscar" ng-model="q" placeholder="buscar usuario.." /> -->
+			
+			<select class="buscar"  ng-model="q" >
+				<option style="color:black;" value="chevallier">chevallier</option>
+				<option style="color:black;" value="plusmar">plusmar</option>
+				<option style="color:black;" value="cruz del sur">cruz del sur</option>
+				<option style="color:black;" value="audi">Audi</option>
+				<option style="color:black;" value="">Todos</option>
+			</select>
+		</div>
+
+		<table>					
+			<thead>
+				<tr>
+					<th> id  </th>	 			
+					<th> Empresa  </th>
+					<th> Horarios de llegada </th>
+					
+				</tr> 
+			</thead>
+			<tbody>
+				<tr  style="cursor:pointer;"  ng-repeat="bus in arrayEmpresas| filter:q as results ">
+					<td>{{bus.idEmpresa}}</td>
+					<td>{{bus.nomEmpresa}}</td>
+					
+					<!-- <td  ng-click=verHorariosLlegada()>ver</td>
+					<td  ng-click=verHora()>ver hora con moment</td> -->
+					<td  ui-sref="grillaHorarios({id:bus.idEmpresa})"">ver</td>
+					<!-- <td  ng-click=obtenerFecha()>ver fecha</td> -->
+<!-- 
+					
+					<td><button class='btn btnModificar'  ui-sref="modificar({id:usuario.id, nombre:usuario.nombre, correo:usuario.correo, clave:usuario.clave, foto:usuario.foto})" >Modificar</button></td>
+					 -->					
+				</tr>
+				<tr  ng-if="results.length == 0">
+					<td></td>						
+					<td> <strong>no hay buses con ese dato......</strong></td>
+					<td></td>
+					<td></td>
+					<td></td>										
+					<td></td>								     
+			    </tr>
+			
+		    </tbody>
+		</table>
+	</div>

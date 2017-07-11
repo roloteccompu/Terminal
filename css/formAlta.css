@@ -1,0 +1,45 @@
+.formAlta{
+	margin:auto;
+	width: 400px;
+	margin-bottom: 70px;
+	
+	
+}
+.formAlta h2{
+	color: white;
+	text-align: center;
+	padding:10px;
+
+} 
+.formAlta form{
+	box-shadow: 1px 1px 3px 1px #888888;
+	border-radius: 5px;
+	background-color:rgba(245,245,245,1);
+	padding: 25px;
+	width: 100%;
+	
+}
+.formAlta form label{
+	color:black;
+	width: 100%;
+	text-align: center;
+	
+	font-size: 1em;
+	margin-bottom: 5px;
+}
+.formAlta form select{
+	width: 100%;
+	color:black;
+	padding:8px;
+	margin-top:2px;
+	font-size: 1em;
+	margin-bottom: 5px;
+}
+.formAlta form .desplegableSalida{
+	width: 100%;
+	color:black;
+	padding:8px;
+	
+	margin-top:2px;
+	font-size: 1em;
+}
