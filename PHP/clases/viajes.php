@@ -1,29 +1,61 @@
 <?php
-require_once"accesoDatos.php";
-class bus
+class viaje
 {
 
 //--ATRIBUTOS
-	public $idEmpresa;
 	public $nomEmpresa;
+	public $origen;
+	public $fechSalida;
+	public $horSalida;
+	public $destino;
+	public $fechLlegada;
+	public $horLlegada;
+	
  	
 //--METODO DE CLASE
   	//SELECCIONAR TODOS LOS COLECTIVOS
+public static function ObtenerHorarios($empresa){
+		
+		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+		$consulta =$objetoAccesoDato->RetornarConsulta("SELECT * FROM datosViajes WHERE nomEmpresa=:empresa");
+		$consulta->bindValue(':empresa',$empresa, PDO::PARAM_STR);
+		$consulta->execute();
 
-	public static function TraerTodos(){
-		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("select * from empresas");
-		$consulta->execute();			
-		$arrayBuses= $consulta->fetchAll(PDO::FETCH_CLASS, "bus");	
-		return $arrayBuses;
+		$arrayHorarios= $consulta->fetchAll(PDO::FETCH_CLASS, "viaje");	
+		return $arrayHorarios;	
+
 	}
-	public static function TraerHorarios(){
-		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("select * from empresas");
-		$consulta->execute();			
-		$arrayBuses= $consulta->fetchAll(PDO::FETCH_CLASS, "bus");	
-		return $arrayBuses;
-	}
+
+
+
+
+
+
+
+
+	// public static function TraerHorariosViajes(){
+	// 	$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+	// 	$consulta =$objetoAccesoDato->RetornarConsulta("SELECT * from datosViajes WHERE ");
+	// 	$consulta->execute();			
+	// 	$arrayViajes= $consulta->fetchAll(PDO::FETCH_CLASS, "viaje");	
+	// 	return $arrayViajes;
+	// }
+
+	// public static function TraerHorariosViajes(){
+	// 	$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+	// 	$consulta =$objetoAccesoDato->RetornarConsulta("select * from datosViajes");
+	// 	$consulta->execute();			
+	// 	$arrayViajes= $consulta->fetchAll(PDO::FETCH_CLASS, "viaje");	
+	// 	return $arrayViajes;
+	// }
+
+	// public static function TraerHorarios(){
+	// 	$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+	// 	$consulta =$objetoAccesoDato->RetornarConsulta("select * from empresas");
+	// 	$consulta->execute();			
+	// 	$arrayBuses= $consulta->fetchAll(PDO::FETCH_CLASS, "bus");	
+	// 	return $arrayBuses;
+	// }
 
 
 

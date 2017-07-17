@@ -4,28 +4,38 @@
 			<h1 class="tituloGrilla">Empresas actualmente en servicio</h1>
 			<!-- <input  class="buscar" ng-model="q" placeholder="buscar usuario.." /> -->
 			
-			<select class="buscar"  ng-model="q" >
+			<!-- <select class="buscar"  ng-model="q" >
 				<option style="color:black;" value="chevallier">chevallier</option>
 				<option style="color:black;" value="plusmar">plusmar</option>
 				<option style="color:black;" value="cruz del sur">cruz del sur</option>
 				<option style="color:black;" value="audi">Audi</option>
 				<option style="color:black;" value="">Todos</option>
-			</select>
+			</select> -->
 		</div>	
 		<table>					
 			<thead>
 				<tr>
-					<th> patente </th>	 			
-					<th> idEmpresa  </th>
-					<th> Horarios de llegada </th>
+					<th> Empresa </th>	 			
+					<th> origen</th>
+					<th> fecha salida</th>
+					<th> hora salida</th>
+					<th> destino</th>
+					<th> fecha llegada</th>
+					<th> hora llegada</th>
+					<th> </th>
 					
 				</tr> 
 			</thead>
 			<tbody>
-				<tr  style="cursor:pointer;"  ng-repeat="bus in arrayHorarios | filter:q as results ">
-					<td>{{bus.patente}}</td>
-					<td>{{bus.idEmpresa}}</td>
-					<td>{{bus.horarioLlegada}}</td>
+				<tr  style="cursor:pointer;"  ng-repeat="viaje in arrayHorarios | filter:q as results ">
+					<td>{{viaje.nomEmpresa}}</td>
+					<td>{{viaje.origen}}</td>
+					<td>{{viaje.fechSalida}}</td>
+					<td>{{viaje.horSalida}}</td>
+					<td>{{viaje.destino}}</td>
+					<td>{{viaje.fechLlegada}}</td>
+					<td>{{viaje.horLlegada}}</td>
+
 								
 				</tr>
 				<tr  ng-if="results.length == 0">

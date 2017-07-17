@@ -1,13 +1,13 @@
 <?php 
 
- include_once "PHP/clases/bus.php";
+ include_once "PHP/clases/viajes.php";
   include_once "PHP/clases/terminal.php";
 
 
 	$DatosPorPost = file_get_contents("php://input");
 	$consulta = json_decode($DatosPorPost);
    
-		switch($consulta->queHacer)
+		switch($consulta->queHacer) 
 		{
 			
 			case "traerTodasLasEmpresas":	
@@ -17,15 +17,20 @@
 
 		    case "verHorarios":	
 		    	
-		    	$arrayHorarios=terminal::ObtenerHorarios($consulta->idEmpresa);
+		    	// echo json_encode($consulta->nomEmpresa);
+		    	$arrayHorarios=viaje::ObtenerHorarios($consulta->nomEmpresa);
 		    	
 		    	echo  json_encode($arrayHorarios);
 				break;
+				
 
-			// case "traerFecha":	
-			// 	$fecha= getDate();
-			// 	echo json_encode(localtime());
-			// 	break;
+			case "altaNuevoViaje":	
+				$arrayHorarios=viajes::TraerHorariosViajes();
+		    	
+		    	echo  json_encode($arrayHorarios);
+				break;
+				// echo json_encode($consulta);
+				// break;
 			// case "traerUnColectivo":	
 			// 	$resultado=usuario::Alta($objUsuario->nombre,$objUsuario->fecha);
 			// 	echo json_encode($resultado);

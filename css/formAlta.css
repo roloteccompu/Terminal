@@ -35,6 +35,9 @@
 	font-size: 1em;
 	margin-bottom: 5px;
 }
+.formAlta form select option{
+	color: black;
+}
 .formAlta form .desplegableSalida{
 	width: 100%;
 	color:black;
@@ -42,4 +45,14 @@
 	
 	margin-top:2px;
 	font-size: 1em;
+}
+.btnEnviar{
+	color: black;
+	width: 100%;
+	height: 40px;
+	font-size: 1.2em;
+	background-color: rgba(0,0,255,0.3);
+}
+.btnEnviar:hover{
+	cursor: pointer;
 }

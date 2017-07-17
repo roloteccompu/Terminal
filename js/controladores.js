@@ -5,8 +5,8 @@ app.controller('controlGrillaEmpresas', function($scope,$http,$state,$interval) 
        $http.post('nexo.php', { queHacer:"traerTodasLasEmpresas"})
       .then(function(respuesta) { 
 
-         console.log(respuesta.data);
-         $scope.arrayEmpresas=respuesta.data;
+         console.log(respuesta);
+          // $scope.arrayEmpresas=respuesta.data;
 
       },function errorCallback(response) {        
          
@@ -21,16 +21,16 @@ app.controller('controlGrillaEmpresas', function($scope,$http,$state,$interval) 
 
 app.controller('controlGrillaHorarios', function($scope,$http,$stateParams,$state,$interval) { 
 
-  var id=$stateParams.id;
+  var nombre=$stateParams.nomEmpresa;
 
-  console.log("id pasado por parametro"+ id);
+  console.log("id pasado por parametro"+ nombre);
 
-   $http.post('nexo.php', { idEmpresa:id,queHacer:"verHorarios"})
+   $http.post('nexo.php', { nomEmpresa:nombre,queHacer:"verHorarios"})
       .then(function(respuesta) { 
 
         console.log(respuesta.data);
 
-        $scope.arrayHorarios=respuesta.data;
+         $scope.arrayHorarios=respuesta.data;
         
       },function errorCallback(response) {        
          
@@ -43,20 +43,46 @@ app.controller('controlMenu', function($scope,$http,$stateParams,$state) {
 });
 app.controller('controlAlta', function($scope,$http,$stateParams,$state) { 
       
-     //trigo todos los nombre de las empresas
+     //traigo todos los nombre de las empresas
       $http.post('nexo.php', { queHacer:"traerTodasLasEmpresas"})
       .then(function(respuesta) { 
 
          console.log(respuesta.data);
-         $scope.arrayEmpresas=respuesta.data;
+        $scope.arrayEmpresas=respuesta.data;
+        $scope.arrayProvincias=RetornarProvincias();
+        $scope.arrayFechas=RetornarFechaActual();
+        $scope.arrayHoras=RetornarHoras();
 
       },function errorCallback(response) {        
          
           console.log( response);           
       });
-      // traigo todas las fechas qu estan habilitadas
-      $scope.arrayFechas=RetornarFechaActual();
-      $scope.arrayHoras=RetornarHoras();
+      
+      $scope.guardar=function(){
+
+        $scope.viaje={};
+        $scope.viaje.empresa=document.getElementById("empresa").value;
+        $scope.viaje.origen=document.getElementById("origen").value;
+        $scope.viaje.fechaSalida=document.getElementById("fechaSalida").value;
+        $scope.viaje.horaSalida=document.getElementById("horaSalida").value;
+        $scope.viaje.destino=document.getElementById("destino").value;
+        $scope.viaje.fechaLlegada=document.getElementById("fechaLlegada").value;
+        $scope.viaje.horaLlegada=document.getElementById("horaLlegada").value;
+        
+        console.log($scope.viaje);
+        alert("falta implemetar el guardado de datos");
+
+      //   $http.post('nexo.php', { queHacer:"altaNuevoViaje",viaje:$scope.viaje})
+      // .then(function(respuesta) { 
+
+      //     console.log(respuesta.data);
+      //    // $scope.arrayEmpresas=respuesta.data;
+
+      // },function errorCallback(response) {        
+         
+      //     console.log( response);           
+      // });
+      }
 
 });
 

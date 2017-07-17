@@ -14,7 +14,7 @@ $stateProvider
     })
 
     .state('grillaHorarios', {
-    url: '/grillaHorarios/{id}',
+    url: '/grillaHorarios/{nomEmpresa}',
     views: {
       'principal': { templateUrl: 'template/templateGrillaHorarios.html',controller: 'controlGrillaHorarios' },
       'menuSuperior': {templateUrl: 'template/menuSuperiorHorarios.html'}
@@ -26,9 +26,16 @@ $stateProvider
     url: '/altaViaje',
     views: {
       'principal': { templateUrl: 'template/templateAlta.html',controller: 'controlAlta' },
-      'menuSuperior': {templateUrl: 'template/menuSuperior.html',controller:'controlMenu'}
+      'menuSuperior': {templateUrl: 'template/menuSuperiorHorarios.html',controller:'controlMenu'}
     }
     })
+    // .state('agregar', {
+    // url: '/agregar',
+    // views: {
+    //   'principal': { templateUrl: 'template/templateAlta.html',controller: 'controlGrillaAlta' },
+    //   'menuSuperior': {templateUrl: 'template/menuSuperior.html',controller:'controlMenu'}
+    // }
+    // })
 
 
 //       .state('modificar', {
